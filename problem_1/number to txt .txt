@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string printNum(int num)
+{
+    if(num>=0&&num<=19)
+    {
+        string Arra[20]={"","one","two","three","four","five","six","seven","eight",
+        "nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen",
+        "seventeen","eighteen","nineteen"};
+
+        return Arra[num];
+    }
+    else if(num>=20&&num<=99)
+    {
+        string Arra[10]={"","","twenty","thirty","forty","fifty",
+        "sixty","seventy","eighty","ninety"};
+
+        return Arra[num/10]+" "+printNum(num%10);
+    }
+    else if(num>=100&&num<=999)
+    {
+        return printNum(num/100)+ " hundred "+printNum(num%100);
+    }
+    else if(num>=1000&&num<=999999)
+    {
+        return printNum(num/1000)+ " thousand " + printNum(num%1000);
+    }
+    else if(num>=1000000&&num<=999999999)
+    {
+        return printNum(num/1000000)+" million "+printNum(num%1000000);
+    }
+    else 
+    {
+        return printNum(num/1000000000)+" billion "+printNum(num%1000000000);
+    }
+}
+
+int main()
+{
+    cout << printNum(24780);
+
+    return 0;
+}
