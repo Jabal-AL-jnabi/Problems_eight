@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+short readYear ()
+{
+    short year;
+    cout<<"please enter year check?\n";
+    cin>>year;
+    
+    return year;
+}
+bool isleapYears (short year)
+{
+    return (year%400==0||year%100!=0&&year%4==0);
+}
+short dayInYear(short year)
+{
+ return (isleapYears(year))?366:365;   
+}
+short huorInYear(short year)
+{
+   return dayInYear(year)*24; 
+}
+int minutesInYear(short year)
+{
+    return huorInYear(year)*60; 
+}
+int secondInYear(short year)
+{
+    return minutesInYear(year)*60; 
+}
+
+int main()
+{
+    
+ short year=readYear();
+ 
+ cout<<"number of day     in year ["<<year<<"] is "
+ <<dayInYear(year)<<endl;
+ cout<<"number of huor    in year ["<<year<<"] is "
+ <<huorInYear(year)<<endl;   
+ cout<<"number of minutes in year ["<<year<<"] is "
+ <<minutesInYear(year)<<endl;  
+ cout<<"number of second  in year ["<<year<<"] is "
+ <<secondInYear(year)<<endl;
+    
+    
+    
+    
+    
+    
+    return 0;
+}
