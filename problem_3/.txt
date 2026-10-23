@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+short readYear ()
+{
+    short year;
+    cout<<"please enter year check?\n";
+    cin>>year;
+    
+    return year;
+}
+bool isBearYears (short year)
+{
+    return (year%400==0||year%100!=0&&year%4==0);
+}
+int main()
+{
+    short year=readYear();
+    if(isBearYears(year))
+    {
+        cout << "\nYes, Year [" << year << "] is a leap year. \n" ;
+    }
+    else
+    {
+       cout << "\nNo, Year [" << year << "] is NOT a leap year. \n" ;
+    }
+    
+    return 0;
+}
