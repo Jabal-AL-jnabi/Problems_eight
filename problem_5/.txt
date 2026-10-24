@@ -9,60 +9,63 @@ short readYear ()
 
     return year;
 }
-short readMunth ()
+short readMonth ()
 { 
-    short Munth;
+    short Month;
     do
     {
-    cout<<"please enter munth to check?\n";
-    cin>>Munth;
-    }while(Munth>12||Munth<1);
+    cout<<"please enter month to check?\n";
+    cin>>Month;
+    }while(Month>12||Month<1);
 
-    return Munth;
+    return Month;
 }
 bool isleapYears (short year)
 {
     return (year%400==0||year%100!=0&&year%4==0);
 }
-short dayInMunth(short year,short munth)
+short dayInMonth(short year,short month)
 {
-   if(munth==2)
+   if(month==2)
    {
        return (isleapYears(year))?29:28;
    }
-   else
+   short month31Days[7]={1,3,5,7,8,10,12};
+   for(short i=1;i<7;++i)
    {
-       return ((munth<=7&&munth%2==1)||(munth>7&&munth%2==0))?31:30;
+     if(month==month31Days[i]) 
+     return 31;
    }
+   return 30;
 }
-int huorInMunth(short year,short munth)
+int huorInMonth(short year,short month)
 {
-    return dayInMunth(year,munth)*24; 
+    return dayInMonth(year,month)*24; 
 }
-int minutesInMunth(short year,short munth)
+int minutesInMonth(short year,short month)
 {
-    return huorInMunth(year,munth)*60; 
+    return huorInMonth(year,month)*60; 
 }
-int secondInMunth(short year,short munth)
+int secondInMonth(short year,short month)
 {
-    return minutesInMunth(year,munth)*60; 
+    return minutesInMonth(year,month)*60; 
 }
 
 int main()
 {
 
  short year=readYear();
- short munth=readMunth();
- 
- cout<<"number of day    in munth ["<<munth<<"] is "
- <<dayInMunth(year,munth)<<endl;  
- cout<<"number of huor    in munth ["<<munth<<"] is "
- <<huorInMunth(year,munth)<<endl;   
- cout<<"number of minutes in munth ["<<munth<<"] is "
- <<minutesInMunth(year,munth)<<endl;  
- cout<<"number of second  in munth ["<<munth<<"] is "
- <<secondInMunth(year,munth)<<endl;
- 
+ short month=readMonth();
+
+ cout<<"number of day    in month ["<<month<<"] is "
+ <<dayInMonth(year,month)<<endl;  
+ cout<<"number of huor    in month ["<<month<<"] is "
+ <<huorInMonth(year,month)<<endl;   
+ cout<<"number of minutes in month ["<<month<<"] is "
+ <<minutesInMonth(year,month)<<endl;  
+ cout<<"number of second  in month ["<<month<<"] is "
+ <<secondInMonth(year,month)<<endl;
+
 
 
 
