@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+short readYear ()
+{
+    short year;
+    cout<<"please enter year check?\n";
+    cin>>year;
+
+    return year;
+}
+short readMunth ()
+{ 
+    short Munth;
+    do
+    {
+    cout<<"please enter munth to check?\n";
+    cin>>Munth;
+    }while(Munth>12||Munth<1);
+
+    return Munth;
+}
+bool isleapYears (short year)
+{
+    return (year%400==0||year%100!=0&&year%4==0);
+}
+short dayInMunth(short year,short munth)
+{
+ short dayMonth[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+ return (munth==2)? (isleapYears(year))?29:28:dayMonth[month+1];
+
+}
+int huorInMunth(short year,short munth)
+{
+    return dayInMunth(year,munth)*24; 
+}
+int minutesInMunth(short year,short munth)
+{
+    return huorInMunth(year,munth)*60; 
+}
+int secondInMunth(short year,short munth)
+{
+    return minutesInMunth(year,munth)*60; 
+}
+
+int main()
+{
+
+ short year=readYear();
+ short munth=readMunth();
+
+ cout<<"number of day    in munth ["<<munth<<"] is "
+ <<dayInMunth(year,munth)<<endl;  
+ cout<<"number of huor    in munth ["<<munth<<"] is "
+ <<huorInMunth(year,munth)<<endl;   
+ cout<<"number of minutes in munth ["<<munth<<"] is "
+ <<minutesInMunth(year,munth)<<endl;  
+ cout<<"number of second  in munth ["<<munth<<"] is "
+ <<secondInMunth(year,munth)<<endl;
+
+
+
+
+    return 0;
+}
