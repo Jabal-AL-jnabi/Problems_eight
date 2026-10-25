@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+using namespace std;
+short readDay()
+{
+    short day;
+    cout<<"please enter day\n";
+    cin>>day;
+    return day;
+}
+short readmonth()
+{
+    short month;
+    cout<<"please enter month\n";
+    cin>>month;
+    return month;
+}
+short readyear()
+{
+    short year;
+    cout<<"please enter year\n";
+    cin>>year;
+    return year;
+}
+short orderDay (short year,short month,short day)
+{
+    short a= (14-month)/12;
+    short y= year-a;
+    short m= month + (12*a) - 2;
+    short d;
+    
+    d=(day+y+(y/4)-(y/100)+(y/400)+((31*m)/12))%7;
+    
+    return d;
+    
+}
+string nameShortDay(short year,short month,short day)
+{
+  string days[7]={"Sun","Mon","Tue","Wed","Thu","Fri","sat"}; 
+  return days[orderDay(year,month,day)];
+}
+
+int main()
+{
+  short day=readDay();
+  short month=readmonth();
+  short year =readyear();
+  
+  cout<<"Date : " <<day<<"/"<<month<<"/"<<year<<endl;
+  cout<<"Day order : "<<orderDay(year,month,day)<<endl;
+  cout<<"Day name : "<<nameShortDay(year,month,day)<<endl;
+  
+    return 0;
+}
