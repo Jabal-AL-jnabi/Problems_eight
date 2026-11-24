@@ -36,3 +36,19 @@ bool isBearYears (short year)
 {
     return (year%400==0||year%100!=0&&year%4==0);
 }
+short dayInYear(short year)
+{
+ return (isleapYears(year))?366:365;   
+}
+short huorInYear(short year)
+{
+   return dayInYear(year)*24; 
+}
+int minutesInYear(short year)
+{
+    return huorInYear(year)*60; 
+}
+int secondInYear(short year)
+{
+    return minutesInYear(year)*60; 
+}
