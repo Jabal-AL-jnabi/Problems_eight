@@ -78,3 +78,20 @@ int secondInMonth(short year,short month)
 {
     return minutesInMonth(year,month)*60; 
 }
+short orderDay (short year,short month,short day)
+{
+    short a= (14-month)/12;
+    short y= year-a;
+    short m= month + (12*a) - 2;
+    short d;
+
+    d=(day+y+(y/4)-(y/100)+(y/400)+((31*m)/12))%7;
+
+    return d;
+
+}
+string nameShortDay(short year,short month,short day)
+{
+  string days[7]={"Sun","Mon","Tue","Wed","Thu","Fri","sat"}; 
+  return days[orderDay(year,month,day)];
+}
