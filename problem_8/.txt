@@ -52,42 +52,37 @@ string nameShortMonth(short month)
   ,"Aug","Sep","Oct","Nov","Dec"}; 
   return NameMonth[month-1];
 }
-void printMunthClinder ()
+void printMunthClinder (short year,short month)
 {
-   short month = readmonth();
-   short year = readyear();
-   short order = orderDay(year,month);
-   short Time =0;
+   
+   short current = orderDay(year,month);
+   
    cout<<"____________"<<nameShortMonth(month)<<"_____________"<<endl;
    cout<<" Sun Mon Tue Wed Thu Fri Sat"<<endl;
-   for(short i=order;i>0;--i)
+   short i;
+   for( i=0;i<current;++i)
    {
    cout<<"    ";
    }
-   for(short i=1;i<dayInMonth(year,month);++i)
+   for(short j=1;j<dayInMonth(year,month);++j)
    {
-      if(i<=10)
-      cout<<"  "<<i<<" ";
-      else
-      cout<<" "<<i<<" ";
-      
-      Time++;
-      if(Time+order==7)
+      printf("%4d",j);
+      ++i;
+      if(i==7)
       {
           cout<<endl;
-          order=0;
-          Time=0;
+          i=0;
       }
    }
-   
-    
+
+
 }
 int main()
 {
-  
- // short month=readmonth();
- // short year =readyear();
-  printMunthClinder();
-  
+
+  short month=readmonth();
+  short year =readyear();
+  printMunthClinder(year,month);
+
     return 0;
 }
