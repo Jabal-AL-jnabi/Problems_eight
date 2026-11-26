@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+short readDay()
+{
+    short day;
+    cout<<"please enter day\n";
+    cin>>day;
+    return day ;
+}
+short readmonth()
+{
+    short month;
+    cout<<"please enter month\n";
+    cin>>month;
+    return month;
+}
+short readyear()
+{
+    short year;
+    cout<<"please enter year\n";
+    cin>>year;
+    return year;
+}
+bool isleapYears (short year)
+{
+    return (year%400==0||year%100!=0&&year%4==0);
+}
+short dayInMonth(short year,short month)
+{
+   if(month==2)
+   {
+       return (isleapYears(year))?29:28;
+   }
+   short month31Days[7]={1,3,5,7,8,10,12};
+   for(short i=0;i<7;++i)
+   {
+     if(month==month31Days[i]) 
+     return 31;
+   }
+   return 30;
+}
+int totalDaysFromBeginningOfYear (short day , short month , short year )
+{
+    int total =0;
+    for(short i=1 ;i<month;++i)
+    {
+      total +=dayInMonth(year, i ) ;
+    }
+    
+    return total+day;
+}
+
+int main()
+{
+   short day=readDay();
+   short month=readmonth();
+   short year=readyear();
+    
+   cout<<"total day from bigining of year : "<<totalDaysFromBeginningOfYear(day,month,year);
+    
+    
+    return 0;
+}
