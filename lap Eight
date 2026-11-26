@@ -95,3 +95,33 @@ string nameShortDay(short year,short month,short day)
   string days[7]={"Sun","Mon","Tue","Wed","Thu","Fri","sat"}; 
   return days[orderDay(year,month,day)];
 }
+void printMunthClinder (short year,short month=1)
+{
+
+   short current = orderDay(year,month);
+
+   cout<<"____________"<<nameShortMonth(month)<<"_____________"<<endl;
+   cout<<" Sun Mon Tue Wed Thu Fri Sat"<<endl;
+   short i;
+   for( i=0;i<current;++i)
+   {
+   cout<<"    ";
+   }
+   for(short j=1;j<dayInMonth(year,month);++j)
+   {
+      printf("%4d",j);
+      ++i;
+      if(i==7)
+      {
+          cout<<endl;
+          i=0;
+      }
+   }
+   cout<<"\n\n";
+
+
+  if (month<=12)
+  {
+  printMunthClinder(year,month+1);
+  }
+}
