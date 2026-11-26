@@ -1,3 +1,30 @@
+short readmonth()
+{
+    short month;
+    cout<<"please enter month\n";
+    cin>>month;
+    return month;
+}
+short readyear()
+{
+    short year;
+    cout<<"please enter year\n";
+    cin>>year;
+    return year;
+}
+short orderDay (short year,short month,short day=1)
+{
+    short a= (14-month)/12;
+    short y= year-a;
+    short m= month + (12*a) - 2;
+    short d;
+
+    d=(day+y+(y/4)-(y/100)+(y/400)+((31*m)/12))%7;
+
+    return d;
+
+}
+
 string printNum(int num)
 {
     if(num>=0&&num<=19)
